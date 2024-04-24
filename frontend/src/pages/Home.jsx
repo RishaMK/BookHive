@@ -22,12 +22,13 @@ const Home = () => {
         setLoading(false);
       });
   }, []);
+
   return (
     <div className='p-4'>
-      <div className='flex justify-between items-center'>
-        <h1 className='text-3xl my-8'>Books List</h1>
+      <div className='flex justify-center items-center mb-16'>
+        <h1 className='text-4xl my-8 mr-8 text-indigo-950'>Books List</h1>
         <Link to='/books/create'>
-          <MdOutlineAddBox className='text-sky-800 text-4xl' />
+          <MdOutlineAddBox className='text-indigo-900 text-4xl cursor-pointer' />
         </Link>
       </div>
       {loading ? (
@@ -35,15 +36,15 @@ const Home = () => {
       ) : (
         <table className='w-full border-none'>
           <thead>
-            <tr>
-              <th>No</th>
+            <tr  className='text-2xl'>
+              <th className='py-4 mb-8'>No</th>
               <th>Title</th>
               <th className=' max-md:hidden'>Author</th>
               <th className=' max-md:hidden'>Published Year</th>
               <th>Operations</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='text-xl'>
             {books.map((book, index) => (
               <tr key={book._id} className='h-8'>
                 <td className='text-center py-4'>
@@ -59,15 +60,15 @@ const Home = () => {
                   {book.published}
                 </td>
                 <td className='text-center py-4'>
-                  <div className='flex justify-center gap-x-4'>
+                  <div className='flex justify-center gap-x-4 text-2xl'>
                     <Link to={`/books/details/${book._id}`}>
-                      <BsInfoCircle className='text-2xl text-green-800' />
+                      <BsInfoCircle className='text-emerald-600 cursor-pointer' />
                     </Link>
                     <Link to={`/books/edit/${book._id}`}>
-                      <AiOutlineEdit className='text-2xl text-yellow-600' />
+                      <AiOutlineEdit className='text-orange-500 cursor-pointer' />
                     </Link>
                     <Link to={`/books/delete/${book._id}`}>
-                      <MdOutlineAddBox className='text-2xl text-red-600'></MdOutlineAddBox>
+                      <MdOutlineAddBox className='text-red-700 cursor-pointer'></MdOutlineAddBox>
                     </Link>
                   </div>
                 </td>

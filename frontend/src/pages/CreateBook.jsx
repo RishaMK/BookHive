@@ -35,42 +35,46 @@ const createBook = () => {
 
   return (
     <div className='p-4'>
-      <BackButton />
-      <h1 className='text-3xl my-4'>Create Book</h1>
+      <div className='mt-4 ml-20'><BackButton /></div>
+      <div className='flex justify-center m-8'>
+        <h1 className='text-3xl my-4 ml-8'>Create Book</h1>
+      </div>
       {loading ? (
         <Spinner />
       ):(
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto'>
+        <div className='flex flex-col border-2 border-black rounded-xl w-[600px] p-4 mx-auto'>
           <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Title</label>
+            <label className='text-xl mx-4 text-black '>Title</label>
             <input 
               type='text'
               value={title}
               onChange={(e)=>{setTitle(e.target.value)}}
-              className='border-2 borer-gray-500 px-4 py-2 w-full'
+              className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none focus:border-white'
             />
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Author</label>
+            <label className='text-xl mx-4 text-black '>Author</label>
             <input 
               type='text'
               value={author}
               onChange={(e)=>{setAuthor(e.target.value)}}
-              className='border-2 borer-gray-500 px-4 py-2 w-full'
+              className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none focus:border-white'
             />
           </div>
           <div className='my-4'>
-            <label className='text-xl mr-4 text-gray-500'>Published Year</label>
+            <label className='text-xl mx-4 text-black '>Published Year</label>
             <input 
               type='text'
               value={published}
               onChange={(e)=>{setPublished(e.target.value)}}
-              className='border-2 borer-gray-500 px-4 py-2 w-full'
+              className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none focus:border-white'
             />
           </div>
-          <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
-            Save
-          </button>
+          <div className='flex align-center justify-center'>
+            <button className='p-2 bg-black m-8 text-xl text-white hover:text-black hover:bg-white rounded-xl w-40' onClick={handleSaveBook}>
+              Save
+            </button>
+          </div>
         </div>
       )}
     </div>

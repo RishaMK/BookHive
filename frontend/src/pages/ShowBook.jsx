@@ -23,44 +23,48 @@ const showBook = () => {
   }, []);
   return (
     <div className='p-4'>
-      <BackButton />
-      <h1 className='text-3xl my-4'>Show Book</h1>
-      {loading ? (<Spinner />) : (
-        <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Id</span>
-            <span>{book._id}</span>
+      <div className='mt-4 ml-20'><BackButton /></div>
+      <div className='flex justify-center'>
+        <h1 className='text-3xl my-4'>Show Book</h1>
+      </div>
+      <div className='flex justify-center mt-16'>
+        {loading ? (<Spinner />) : (
+          <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
+            <div className='my-4'>
+              <span className='text-xl mr-4 text-black'>Id:</span>
+              <span className='text-[17px]'>{book._id}</span>
+            </div>
+            <div className='my-4'>
+              <span className='text-xl mr-4 text-black'>Title:</span>
+              <span className='text-[17px]'>{book.title}</span>
+            </div>
+            <div className='my-4'>
+              <span className='text-xl mr-4 text-black'>Author:</span>
+              <span className='text-[17px]'>{book.author}</span>
+            </div>
+            <div className='my-4'>
+              <span className='text-xl mr-4 text-black'>Published Year:</span>
+              <span className='text-[17px]'>{book.published}</span>
+            </div>
+            <div className='my-4'>
+              <span className='text-xl mr-4 text-black'>Created At:</span>
+              <span className='text-[17px]'>
+                {new Date(book.createdAt).toLocaleDateString([], { year: 'numeric', month: '2-digit', day: '2-digit' })}
+                &nbsp;&nbsp;
+                {new Date(book.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+              </span>
+            </div>
+            <div className='my-4'>
+              <span className='text-xl mr-4 text-black'>Last Updated At:</span>
+              <span className='text-[17px]'>
+                {new Date(book.updatedAt).toLocaleDateString([], { year: 'numeric', month: '2-digit', day: '2-digit' })}
+                &nbsp;&nbsp;
+                {new Date(book.updatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+              </span>
+            </div>
           </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Title</span>
-            <span>{book.title}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Author</span>
-            <span>{book.author}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Published Year</span>
-            <span>{book.published}</span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Created At</span>
-            <span>
-              {new Date(book.createdAt).toLocaleDateString([], { year: 'numeric', month: '2-digit', day: '2-digit' })}
-              &nbsp;&nbsp;
-              {new Date(book.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-            </span>
-          </div>
-          <div className='my-4'>
-            <span className='text-xl mr-4 text-gray-500'>Last Updated At</span>
-            <span>
-              {new Date(book.updatedAt).toLocaleDateString([], { year: 'numeric', month: '2-digit', day: '2-digit' })}
-              &nbsp;&nbsp;
-              {new Date(book.updatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-            </span>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   )
 }

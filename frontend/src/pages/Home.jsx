@@ -1,82 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React,{ useState,useEffect }from 'react';
 import Spinner from '../components/Spinner';
+import Card from '../components/Card';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { AiOutlineEdit } from 'react-icons/ai';
-import { BsInfoCircle } from 'react-icons/bs';
-import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
+import AddIcon from '@mui/icons-material/Add';
+
+
+
 
 const Home = () => {
-  const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
+  const [books, setBooks] = useState([]);
+
+  useEffect(()=>{
     setLoading(true);
     axios
-      .get('http://localhost:5555/books')
-      .then((response) => {
-        setBooks(response.data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
-  }, []);
+    .get('http://localhost:5555/books')
+    .then((response)=>{
+      setBooks(response.data.data);
+      setLoading(false);
+    })
+    .catch((error)=>{
+      console.log(error);
+      alert("error occured pls check console");
+      setLoading(false);
+    })
+  },[]);
 
   return (
-    <div className='p-4'>
-      <div className='flex justify-center items-center mb-16'>
-        <h1 className='text-4xl my-8 mr-8 text-indigo-950'>Books List</h1>
+    <div className='p=4'>
+      <div className='flex flex-center justify-center items-center p-4'>
+        <h1 className='text-3xl text-black p-4'>All Books</h1>
         <Link to='/books/create'>
-          <MdOutlineAddBox className='text-indigo-900 text-4xl cursor-pointer' />
+          <div className='border-2 border-purple-800 text-purple-800 hover:border-black hover:text-black ml-16 hover:scale-110 transition-transform duration-250'>
+            <AddIcon />
+          </div>
         </Link>
       </div>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <table className='w-full border-none'>
-          <thead>
-            <tr  className='text-2xl'>
-              <th className='py-4 mb-8'>No</th>
-              <th>Title</th>
-              <th className=' max-md:hidden'>Author</th>
-              <th className=' max-md:hidden'>Published Year</th>
-              <th>Operations</th>
-            </tr>
-          </thead>
-          <tbody className='text-xl'>
-            {books.map((book, index) => (
-              <tr key={book._id} className='h-8'>
-                <td className='text-center py-4'>
-                  {index + 1}
-                </td>
-                <td className='text-center py-4'>
-                  {book.title}
-                </td>
-                <td className='text-center max-md:hidden py-4'>
-                  {book.author}
-                </td>
-                <td className='text-center max-md:hidden py-4'>
-                  {book.published}
-                </td>
-                <td className='text-center py-4'>
-                  <div className='flex justify-center gap-x-4 text-2xl'>
-                    <Link to={`/books/details/${book._id}`}>
-                      <BsInfoCircle className='text-emerald-600 cursor-pointer' />
-                    </Link>
-                    <Link to={`/books/edit/${book._id}`}>
-                      <AiOutlineEdit className='text-orange-500 cursor-pointer' />
-                    </Link>
-                    <Link to={`/books/delete/${book._id}`}>
-                      <MdOutlineAddBox className='text-red-700 cursor-pointer'></MdOutlineAddBox>
-                    </Link>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      {loading? (<Spinner />):(
+          <div className='m-8'> 
+            <Card title='hello' author='placeholder' published='check'/>
+          </div>
+        )}
     </div>
   )
 }

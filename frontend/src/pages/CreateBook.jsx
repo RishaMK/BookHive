@@ -24,12 +24,12 @@ const createBook = () => {
       .post('http://localhost:5555/books', data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar('Book created successfully!', { variant: 'success', className: 'bg-transparent text-black' });
+        enqueueSnackbar('Book created successfully!', { variant: 'success', className: 'bg-purple-300 text-black' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
-        enqueueSnackbar('error occurred, please check console', { variant: 'error', className: 'bg-transparent text-black' });
+        enqueueSnackbar('error occurred, please check console', { variant: 'error', className: 'bg-purple-100 text-black' });
         console.log(error);
       });
   }
@@ -51,7 +51,7 @@ const createBook = () => {
                 type='text'
                 value={title}
                 onChange={(e) => { setTitle(e.target.value) }}
-                className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none focus:border-white'
+                className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none '
               />
             </div>
             <div className='my-4'>
@@ -60,7 +60,7 @@ const createBook = () => {
                 type='text'
                 value={author}
                 onChange={(e) => { setAuthor(e.target.value) }}
-                className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none focus:border-white'
+                className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none '
               />
             </div>
             <div className='my-4'>
@@ -69,11 +69,11 @@ const createBook = () => {
                 type='text'
                 value={published}
                 onChange={(e) => { setPublished(e.target.value) }}
-                className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none focus:border-white'
+                className='border-2 border-black px-4 py-2 w-full rounded-xl focus:outline-none '
               />
             </div>
             <div className='flex align-center justify-center'>
-              <button className='p-2 bg-black m-8 text-xl text-white hover:text-black hover:bg-white rounded-xl w-40'>
+              <button className='p-2 bg-black m-8 text-xl text-white rounded-xl w-40'>
                 Save
               </button>
             </div>

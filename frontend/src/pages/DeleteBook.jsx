@@ -18,7 +18,7 @@ const deleteBook = () => {
       .then(() => {
         setLoading(false);
         navigate('/');
-        enqueueSnackbar('book deleted successfully!', {variant:'success', className:'bg-transparent text-black'});
+        enqueueSnackbar('book deleted successfully!', {variant:'success', className:'bg-purple-300 text-black'});
       })
       .catch((error) => {
         setLoading(false);

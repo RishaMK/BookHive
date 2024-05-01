@@ -43,12 +43,12 @@ const EditBook = () => {
       .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar('Book edited successfully!', { variant: 'success', className: 'bg-purple-300 text-black' });
+        enqueueSnackbar('Book edited successfully!', { variant: 'success', className: 'bg-indigo-300 text-black' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
-        enqueueSnackbar('error occurred, please check console', { variant: 'error', className: 'bg-purple-300 text-black' });
+        enqueueSnackbar('error occurred, please check console', { variant: 'error', className: 'bg-indigo-300 text-black' });
         console.log(error);
       });
   }

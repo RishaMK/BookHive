@@ -24,12 +24,12 @@ const createBook = () => {
       .post('http://localhost:5555/books', data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar('Book created successfully!', { variant: 'success', className: 'bg-purple-300 text-black' });
+        enqueueSnackbar('Book created successfully!', { variant: 'success', className: 'bg-indigo-300 text-black' });
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
-        enqueueSnackbar('error occurred, please check console', { variant: 'error', className: 'bg-purple-100 text-black' });
+        enqueueSnackbar('error occurred, please check console', { variant: 'error', className: 'bg-indigo-300 text-black' });
         console.log(error);
       });
   }

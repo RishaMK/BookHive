@@ -29,7 +29,7 @@ const Home = () => {
       <div className='flex flex-center justify-center items-center'>
         <h1 className='text-3xl text-black'>All Books</h1>
         <Link to='/books/create'>
-          <div className='border-2 border-purple-800 text-purple-800 hover:border-black hover:text-black ml-16 hover:scale-110 transition-transform duration-250'>
+          <div className='border-2 border-indigo-600 text-indigo-800 hover:border-black hover:text-black ml-4 hover:scale-110 transition-transform duration-250'>
             <AddIcon />
           </div>
         </Link>
@@ -38,8 +38,8 @@ const Home = () => {
         <Spinner />
       ) : (
         <div className='m-8 grid grid-cols-3 gap-4'>
-          {books.map((item) => (
-            <Card book={item} key={item._id} />
+          {books.map((item, index) => (
+            <Card book={item} key={item._id} index={index} />
           ))}
         </div>
       )}

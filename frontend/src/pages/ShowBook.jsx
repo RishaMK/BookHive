@@ -29,7 +29,7 @@ const showBook = () => {
       </div>
       <div className='flex justify-center mt-16'>
         {loading ? (<Spinner />) : (
-          <div className='flex flex-col border-2 border-sky-400 rounded-xl w-fit p-4'>
+          <div className='flex flex-col border-2 border-black rounded-xl w-fit p-4 bg-indigo-200'>
             <div className='my-4'>
               <span className='text-xl mr-4 text-black'>Id:</span>
               <span className='text-[17px]'>{book._id}</span>

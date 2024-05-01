@@ -44,7 +44,7 @@ const createBook = () => {
         <Spinner />
       ) : (
         <form onSubmit={handleSaveBook}>
-          <div className='flex flex-col border-2 border-black rounded-xl w-[600px] p-4 mx-auto'>
+          <div className='flex flex-col border-2 border-black rounded-xl w-[600px] p-4 mx-auto bg-indigo-200'>
             <div className='my-4'>
               <label className='text-xl mx-4 text-black '>Title</label>
               <input
@@ -73,7 +73,7 @@ const createBook = () => {
               />
             </div>
             <div className='flex align-center justify-center'>
-              <button className='p-2 bg-black m-8 text-xl text-white rounded-xl w-40'>
+              <button className='p-2 bg-black m-8 text-xl text-white rounded-xl w-40 hover:scale-105 transiton-transform duration-300'>
                 Save
               </button>
             </div>

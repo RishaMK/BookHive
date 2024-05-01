@@ -18,10 +18,10 @@ BookHive is a simple book management system built with the MERN stack, allowing 
 
 ## Technologies Used
 
-- **Frontend**: React.js, Vue.js, Material-UI for icons, Tailwind CSS for styling
+- **Frontend**: React.js, Material-UI for icons, Tailwind CSS for styling
 - **Backend**: Express.js, Node.js
 - **Database**: MongoDB Atlas
-- **Other Tools**: Axios for API requests, React Router for navigation
+- **Other Tools**: Axios for API requests, React Router for navigation, Vite for local development
 
 ## Setup
 
